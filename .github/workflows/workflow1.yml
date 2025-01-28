@@ -1,0 +1,23 @@
+name: Workflow 1
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo statement
+        run: echo "Workflow 1 completed successfully"
+
+      - name: Trigger Workflow 2
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/<OWNER>/<REPO>/actions/workflows/workflow-2.yml/dispatches \
+            -d '{"ref":"main"}'
