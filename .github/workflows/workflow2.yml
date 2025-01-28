@@ -1,7 +1,7 @@
 name: Workflow 2
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Triggered manually or by the API call from Workflow 1
 
 jobs:
   run-echo:
