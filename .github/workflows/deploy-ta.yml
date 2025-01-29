@@ -17,8 +17,14 @@ on:
           - nightly
           - INTEGRATION_VERIFIED
       schedule:
+        type: choice
         default: ''
-        description: schedule
+        description: Schedule
+        options:
+          - ''
+          - noon
+          - nightly
+          - weekly
       SIMULATE_TA_BRANCH:
         default: ''
         description: TA Branch to simulate          
@@ -30,8 +36,8 @@ jobs:
       - name: Echo statement
         run: echo "Workflow 1 completed successfully"
 
-      - name: Trigger Workflow 2 (Only if symlink is nightly)
-        if: ${{ inputs.symlinkToUpdate == 'nightly' }}  # Condition to check for nightly
+      - name: Trigger Workflow 2 (Only if symlink and schedule are nightly)
+        if: ${{ inputs.symlinkToUpdate == 'nightly' && inputs.schedule == 'nightly' }}  # Condition for both
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}  # Make sure your Personal Access Token is stored as a secret
         run: |
