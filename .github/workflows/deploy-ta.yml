@@ -1,10 +1,11 @@
 name: Deploy TA
 run-name: Deploy TA (${{ inputs.symlinkToUpdate }}) using ${{ inputs.SIMULATE_TA_BRANCH || github.ref_name }}
+
 on:
   push:
     branches:
       - main
-  workflow_dispatch:  # Allows manual triggering of Workflow 1
+  workflow_dispatch:
     inputs:
       symlinkToUpdate:
         type: choice
@@ -31,7 +32,7 @@ jobs:
           response=$(curl -X POST \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/sreeharsha-alluri/Testing_auto_trigger_using_api-s/actions/workflows/deploy-int-ta.yml/dispatches \
+            https://api.github.com/repos/sreeharsha-alluri/Testing_auto_trigger_using_api-s/actions/workflows/int_ta.yml/dispatches \
             -d '{"ref":"main"}' \
             -w "%{http_code}")
           echo "Response: $response"
