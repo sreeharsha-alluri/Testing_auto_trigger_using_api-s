@@ -16,6 +16,12 @@ on:
           - noon
           - nightly
           - INTEGRATION_VERIFIED
+      schedule:
+        default: ''
+        description: schedule
+      SIMULATE_TA_BRANCH:
+        default: ''
+        description: TA Branch to simulate          
 
 jobs:
   run-echo:
