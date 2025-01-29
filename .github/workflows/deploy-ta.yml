@@ -5,6 +5,16 @@ on:
     branches:
       - main
   workflow_dispatch:  # Allows manual triggering of Workflow 1
+    inputs:
+      symlinkToUpdate:
+        type: choice
+        default: NoSymlinkUpdate
+        description: TA symlink to update
+        options:
+          - NoSymlinkUpdate
+          - noon
+          - nightly
+          - INTEGRATION_VERIFIED
 
 jobs:
   run-echo:
