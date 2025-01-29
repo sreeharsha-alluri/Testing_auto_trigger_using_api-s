@@ -17,14 +17,8 @@ on:
           - nightly
           - INTEGRATION_VERIFIED
       schedule:
-        type: choice
         default: ''
-        description: Schedule
-        options:
-          - ''
-          - noon
-          - nightly
-          - weekly
+        description: Enter the schedule (e.g., nightly, noon, weekly)
       SIMULATE_TA_BRANCH:
         default: ''
         description: TA Branch to simulate          
