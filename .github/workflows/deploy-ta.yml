@@ -1,5 +1,5 @@
 name: Deploy TA
-run-name: Deploy TA (${{ inputs.symlinkToUpdate }}) using ${{ inputs.SIMULATE_TA_BRANCH || github.ref_name }}
+run-name: Deploy TA (${{ inputs.schedule }}) using ${{ inputs.SIMULATE_TA_BRANCH || github.ref_name }}
 
 on:
   push:
