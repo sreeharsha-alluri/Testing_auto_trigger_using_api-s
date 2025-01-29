@@ -23,7 +23,8 @@ jobs:
       - name: Echo statement
         run: echo "Workflow 1 completed successfully"
 
-      - name: Trigger Workflow 2
+      - name: Trigger Workflow 2 (Only if symlink is nightly)
+        if: ${{ inputs.symlinkToUpdate == 'nightly' }}  # Condition to check for nightly
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}  # Make sure your Personal Access Token is stored as a secret
         run: |
