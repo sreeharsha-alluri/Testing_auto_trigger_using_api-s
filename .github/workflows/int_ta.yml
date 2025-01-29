@@ -1,4 +1,4 @@
-name: Workflow 2
+name: Deploy INT TA
 
 on:
   workflow_dispatch:  # Triggered manually or by the API call from Workflow 1
