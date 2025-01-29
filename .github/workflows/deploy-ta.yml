@@ -6,7 +6,7 @@ on:
     branches:
       - main
   workflow_dispatch:
-    inputs:
+   inputs:
       symlinkToUpdate:
         type: choice
         default: NoSymlinkUpdate
@@ -18,11 +18,10 @@ on:
           - INTEGRATION_VERIFIED
       schedule:
         default: ''
-        description: Enter the schedule (e.g., nightly, noon, weekly)
+        description: schedule
       SIMULATE_TA_BRANCH:
         default: ''
-        description: TA Branch to simulate          
-
+        description: TA Branch to simulate
 jobs:
   run-echo:
     runs-on: ubuntu-latest
